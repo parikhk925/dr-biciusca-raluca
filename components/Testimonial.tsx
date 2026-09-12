@@ -6,8 +6,8 @@ export function Testimonial() {
     <section id="recenzii" className="relative overflow-hidden bg-cream py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <Reveal>
-          <div className="rounded-[2.25rem] bg-teal-900 p-10 text-center text-white sm:p-16">
-            <span className="inline-flex rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-teal-200">
+          <div className="rounded-[2.25rem] bg-blue-900 p-10 text-center text-white sm:p-16">
+            <span className="inline-flex rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-blue-200">
               Testimoniale
             </span>
 
@@ -17,7 +17,7 @@ export function Testimonial() {
             </p>
 
             <div className="mt-8 flex items-center justify-center gap-4">
-              <span className="font-display text-4xl font-bold text-teal-300">
+              <span className="font-display text-4xl font-bold text-blue-300">
                 {SITE.rating.score}
               </span>
               <span className="max-w-[10rem] text-left text-xs leading-tight text-white/60">

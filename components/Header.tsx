@@ -1,60 +1,93 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import { SITE } from "@/lib/site";
 
 const NAV = [
-  { href: "#top", label: "Acasă" },
-  { href: "#servicii", label: "Servicii" },
-  { href: "#despre", label: "Despre" },
-  { href: "#recenzii", label: "Testimoniale" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Acasă" },
+  { href: "/servicii", label: "Servicii" },
+  { href: "/despre", label: "Despre" },
+  { href: "/recenzii", label: "Testimoniale" },
+  { href: "/contact", label: "Contact" },
 ];
 
-export function Header() {
+export function Header({ variant = "overlay" }: { variant?: "overlay" | "solid" }) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#top");
+  const [scrolled, setScrolled] = useState(variant === "solid");
+
+  useEffect(() => {
+    if (variant !== "solid") return;
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [variant]);
+
+  const solid = variant === "solid";
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header
+      className={
+        solid
+          ? `sticky top-0 z-50 transition-shadow ${
+              scrolled ? "bg-white/90 shadow-card backdrop-blur-md" : "bg-white"
+            }`
+          : "absolute inset-x-0 top-0 z-50"
+      }
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <a href="#top" className="flex items-center gap-2 text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-base">
+        <Link
+          href="/"
+          className={`flex items-center gap-2 ${solid ? "text-blue-900" : "text-white"}`}
+        >
+          <span
+            className={`flex h-8 w-8 items-center justify-center rounded-full text-base ${
+              solid ? "bg-blue-50" : "bg-white/15"
+            }`}
+          >
             🦷
           </span>
           <span className="font-display text-lg font-bold tracking-tight">
             {SITE.doctorName}
           </span>
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-1.5 rounded-full bg-white/10 p-1.5 backdrop-blur-md lg:flex">
+        <nav
+          className={`hidden items-center gap-1.5 rounded-full p-1.5 backdrop-blur-md lg:flex ${
+            solid ? "bg-blue-50" : "bg-white/10"
+          }`}
+        >
           {NAV.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              onClick={() => setActive(item.href)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                active === item.href
-                  ? "bg-white text-ink"
+                solid
+                  ? "text-blue-900/80 hover:bg-white"
                   : "text-white/85 hover:bg-white/10"
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#programare"
-          className="hidden rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-card transition-transform hover:-translate-y-0.5 lg:inline-flex"
+        <Link
+          href="/contact#programare"
+          className={`hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-card transition-transform hover:-translate-y-0.5 lg:inline-flex ${
+            solid ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-white text-blue-900"
+          }`}
         >
           Sună acum
-        </a>
+        </Link>
 
         <button
           aria-label="Deschide meniul"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white lg:hidden"
+          className={`flex h-10 w-10 items-center justify-center rounded-full lg:hidden ${
+            solid ? "bg-blue-50 text-blue-900" : "bg-white/10 text-white"
+          }`}
         >
           <svg width="20" height="14" viewBox="0 0 22 16" fill="none">
             <path d="M0 1H22" stroke="currentColor" strokeWidth="1.6" />
@@ -65,25 +98,29 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="mx-6 rounded-3xl bg-ink/95 px-6 py-6 backdrop-blur-md lg:hidden">
+        <div
+          className={`mx-6 rounded-3xl px-6 py-6 backdrop-blur-md lg:hidden ${
+            solid ? "bg-blue-900 shadow-soft" : "bg-blue-900/95"
+          }`}
+        >
           <nav className="flex flex-col gap-4">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="text-base font-medium text-white"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#programare"
+            <Link
+              href="/contact#programare"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-ink"
+              className="mt-2 rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-blue-900"
             >
               Sună acum
-            </a>
+            </Link>
           </nav>
         </div>
       )}

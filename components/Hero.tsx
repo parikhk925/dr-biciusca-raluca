@@ -24,7 +24,7 @@ export function Hero() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
 
   return (
-    <section id="top" ref={ref} className="relative overflow-hidden bg-ink">
+    <section id="top" ref={ref} className="relative overflow-hidden bg-blue-950">
       <div className="relative mx-4 mt-4 overflow-hidden rounded-[2rem] sm:mx-6 sm:mt-6 lg:mx-8 lg:mt-8">
         <div className="relative h-[92svh] min-h-[620px] w-full">
           <motion.div style={{ y: imageY }} className="absolute inset-0 -top-[8%] h-[118%] w-full">
@@ -36,8 +36,8 @@ export function Hero() {
               className="animate-kenburns object-cover object-[60%_35%]"
             />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/5" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/40 to-blue-900/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/70 via-blue-950/10 to-transparent" />
 
           <Header />
 
@@ -77,11 +77,11 @@ export function Hero() {
 
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <a
-                  href="#programare"
+                  href="/contact#programare"
                   className="group inline-flex items-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-semibold text-ink shadow-soft transition-transform hover:-translate-y-0.5"
                 >
                   Programează-te
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-500 text-white transition-transform group-hover:translate-x-0.5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-500 text-white transition-transform group-hover:translate-x-0.5">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                       <path d="M2 8h12M9 3l5 5-5 5" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -105,7 +105,7 @@ export function Hero() {
             >
               <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-white/10">
                 <Image src="/images/hero.jpg" alt="" fill className="object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center bg-ink/30">
+                <div className="absolute inset-0 flex items-center justify-center bg-blue-950/40">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-ink">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
                       <path d="M1 0.5v9l8-4.5z" />
@@ -118,7 +118,7 @@ export function Hero() {
                   Tratament calm, explicat pas cu pas.
                 </p>
                 <p className="mt-1 flex items-center gap-1 text-xs font-medium text-white/70">
-                  <span className="text-teal-300">★</span> {SITE.rating.score} · {SITE.rating.basedOn} recomandări
+                  <span className="text-blue-300">★</span> {SITE.rating.score} · {SITE.rating.basedOn} recomandări
                 </p>
               </div>
             </motion.div>

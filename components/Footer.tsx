@@ -1,16 +1,17 @@
+import Link from "next/link";
 import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ink pt-20 text-white/70">
+    <footer className="relative overflow-hidden bg-blue-950 pt-20 text-white/70">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 pb-16 sm:grid-cols-4 lg:px-10">
         <div className="col-span-2 sm:col-span-1">
-          <a href="#top" className="flex items-center gap-2 text-white">
+          <Link href="/" className="flex items-center gap-2 text-white">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-base">
               🦷
             </span>
             <span className="font-display text-lg font-bold">{SITE.doctorName}</span>
-          </a>
+          </Link>
           <p className="mt-4 text-sm leading-relaxed text-white/50">
             {SITE.practiceName}
             <br />
@@ -21,10 +22,11 @@ export function Footer() {
         <FooterCol
           title="Meniu"
           items={[
-            { label: "Acasă", href: "#top" },
-            { label: "Servicii", href: "#servicii" },
-            { label: "Despre", href: "#despre" },
-            { label: "Contact", href: "#contact" },
+            { label: "Acasă", href: "/" },
+            { label: "Servicii", href: "/servicii" },
+            { label: "Despre", href: "/despre" },
+            { label: "Testimoniale", href: "/recenzii" },
+            { label: "Contact", href: "/contact" },
           ]}
         />
 
@@ -85,9 +87,9 @@ function FooterCol({
       <ul className="mt-4 space-y-2 text-sm text-white/60">
         {items.map((item) => (
           <li key={item.label}>
-            <a href={item.href} className="hover:text-white">
+            <Link href={item.href} className="hover:text-white">
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

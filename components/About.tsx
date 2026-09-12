@@ -42,7 +42,7 @@ export function About() {
 
 function PlaceholderAvatar() {
   return (
-    <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-cream bg-teal-100 text-xs font-semibold text-teal-700 ring-1 ring-ink/10">
+    <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-cream bg-blue-100 text-xs font-semibold text-blue-700 ring-1 ring-ink/10">
       RB
     </span>
   );

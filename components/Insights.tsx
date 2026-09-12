@@ -19,8 +19,8 @@ export function Insights() {
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {SITE.insights.map((post, i) => (
             <Reveal key={post.title} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-ink/10 bg-white p-6 transition-colors hover:border-teal-500/40">
-                <span className="inline-flex rounded-full bg-teal-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-teal-700">
+              <div className="h-full rounded-2xl border border-ink/10 bg-white p-6 transition-colors hover:border-blue-500/40">
+                <span className="inline-flex rounded-full bg-blue-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700">
                   {post.tag}
                 </span>
                 <h3 className="mt-4 text-lg font-semibold leading-snug text-ink">

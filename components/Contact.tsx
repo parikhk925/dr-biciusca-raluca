@@ -6,21 +6,10 @@ export function Contact() {
   const mapQuery = encodeURIComponent(SITE.address);
 
   return (
-    <section id="contact" className="relative bg-cream py-28 lg:py-36">
+    <section id="contact" className="relative bg-cream py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <Reveal>
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-teal-700">
-                Contact
-              </span>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <h2 className="mt-4 text-balance font-display text-3xl font-bold leading-tight text-ink sm:text-4xl lg:text-5xl">
-                Suntem aici pentru tine.
-              </h2>
-            </Reveal>
-
             <Reveal delay={0.16}>
               <div className="mt-8 space-y-6">
                 <InfoRow label="Adresă">
@@ -29,7 +18,7 @@ export function Contact() {
                   {SITE.address}
                 </InfoRow>
                 <InfoRow label="Telefon / WhatsApp">
-                  <a href={`tel:${SITE.phoneE164}`} className="hover:text-teal-700">
+                  <a href={`tel:${SITE.phoneE164}`} className="hover:text-blue-700">
                     {SITE.phoneDisplay}
                   </a>
                 </InfoRow>
@@ -71,7 +60,7 @@ export function Contact() {
 function InfoRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="border-b border-ink/10 pb-5">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">{label}</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">{label}</p>
       <div className="mt-2 text-base leading-relaxed text-ink">{children}</div>
     </div>
   );

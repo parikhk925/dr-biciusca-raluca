@@ -60,8 +60,8 @@ export function AppointmentForm() {
       </p>
 
       {status === "success" ? (
-        <div className="mt-8 rounded-2xl border border-teal-500/30 bg-teal-50 p-6">
-          <p className="font-medium text-teal-700">Cererea ta a fost înregistrată.</p>
+        <div className="mt-8 rounded-2xl border border-blue-500/30 bg-blue-50 p-6">
+          <p className="font-medium text-blue-700">Cererea ta a fost înregistrată.</p>
           <p className="mt-2 text-sm leading-relaxed text-inkSoft">
             Te vom contacta telefonic pentru confirmare. Pentru un răspuns mai rapid, poți trimite
             aceleași detalii direct pe WhatsApp:
@@ -71,14 +71,14 @@ export function AppointmentForm() {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-teal-600"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-blue-600"
             >
               Trimite pe WhatsApp
             </a>
           )}
           <button
             onClick={() => setStatus("idle")}
-            className="mt-4 block text-sm font-medium text-teal-700 underline underline-offset-4"
+            className="mt-4 block text-sm font-medium text-blue-700 underline underline-offset-4"
           >
             Trimite o altă cerere
           </button>
@@ -105,7 +105,7 @@ export function AppointmentForm() {
             <label className="mb-1.5 block text-sm font-medium text-ink">Motivul programării</label>
             <select
               name="reason"
-              className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-teal-500"
+              className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
               defaultValue=""
             >
               <option value="" disabled>
@@ -132,7 +132,7 @@ export function AppointmentForm() {
               name="details"
               rows={3}
               placeholder="Spune-ne pe scurt ce simptome ai sau orice ne ajută să te pregătim pentru vizită."
-              className="w-full resize-none rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-teal-500"
+              className="w-full resize-none rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
             />
           </div>
 
@@ -143,7 +143,7 @@ export function AppointmentForm() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full rounded-full bg-teal-500 px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-teal-600 disabled:opacity-60"
+            className="w-full rounded-full bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-blue-600 disabled:opacity-60"
           >
             {status === "loading" ? "Se trimite..." : "Trimite cererea"}
           </button>
@@ -170,14 +170,14 @@ function Field({
     <div>
       <label className="mb-1.5 block text-sm font-medium text-ink">
         {label}
-        {required && <span className="text-teal-600"> *</span>}
+        {required && <span className="text-blue-600"> *</span>}
       </label>
       <input
         type={type}
         name={name}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-teal-500"
+        className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
       />
     </div>
   );

@@ -24,7 +24,7 @@ export function Stats() {
               <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
 
               <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-white/95 p-5 shadow-card backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-teal-700">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
                   Program cabinet
                 </p>
                 <div className="mt-3 space-y-1.5">
@@ -70,7 +70,7 @@ export function Stats() {
             <Reveal delay={0.2}>
               <div className="mt-7 flex items-center justify-between gap-4 rounded-2xl border border-ink/10 bg-white p-4">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-500/10 text-lg font-semibold text-teal-700">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10 text-lg font-semibold text-blue-700">
                     RB
                   </span>
                   <div>
@@ -80,7 +80,7 @@ export function Stats() {
                 </div>
                 <a
                   href={`tel:${SITE.phoneE164}`}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-500 text-white transition-transform hover:-translate-y-0.5"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-500 text-white transition-transform hover:-translate-y-0.5"
                   aria-label="Sună acum"
                 >
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
