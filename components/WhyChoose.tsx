@@ -22,9 +22,7 @@ export function WhyChoose() {
           <Reveal delay={0.05} className="md:col-span-2 md:row-span-2" y={44}>
             <div className="flex h-full flex-col justify-between rounded-3xl border border-ink/10 bg-cream p-8 shadow-card transition-shadow hover:shadow-soft">
               <div>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-500/10 text-blue-600">
-                  01
-                </span>
+                <span className="font-display text-4xl font-bold text-blue-500/25">01</span>
                 <h3 className="mt-6 text-2xl font-semibold text-ink">{p1.title}</h3>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-inkSoft">{p1.text}</p>
               </div>

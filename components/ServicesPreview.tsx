@@ -22,7 +22,7 @@ export function ServicesPreview() {
           <Reveal delay={0.12}>
             <Link
               href="/servicii"
-              className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-semibold text-blue-700 shadow-card transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 underline decoration-blue-200 decoration-2 underline-offset-4 transition-colors hover:text-blue-900 hover:decoration-blue-400"
             >
               Vezi toate serviciile
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -32,27 +32,32 @@ export function ServicesPreview() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 divide-y divide-ink/10 border-t border-ink/10 sm:grid-cols-2 sm:divide-y-0 sm:border-t-0 sm:gap-px sm:bg-ink/10 lg:grid-cols-4">
           {SITE.services.map((service, i) => (
-            <Reveal key={service.slug} delay={i * 0.06}>
+            <Reveal key={service.slug} delay={i * 0.05} className="h-full">
               <Link
                 href={`/servicii/${service.slug}`}
-                className="group flex h-full flex-col justify-between rounded-2xl border border-ink/10 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft"
+                className="group flex h-full flex-col justify-between bg-cream px-1 py-7 transition-colors hover:bg-white sm:px-6"
               >
                 <div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                    <ServiceIcon slug={service.slug} />
-                  </span>
-                  <h3 className="mt-5 font-display text-base font-semibold text-ink">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="font-display text-4xl font-bold text-ink/10 transition-colors group-hover:text-blue-500/25">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-blue-600">
+                      <ServiceIcon slug={service.slug} />
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-ink">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-inkSoft">
+                  <p className="mt-2 text-sm leading-relaxed text-inkSoft">
                     {service.description}
                   </p>
                 </div>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600">
+                <span className="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700">
                   Detalii
-                  <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-1">
+                  <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-1.5">
                     <path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
@@ -73,7 +78,7 @@ export function ServicesPreview() {
 }
 
 function ServiceIcon({ slug }: { slug: string }) {
-  const common = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none" as const };
+  const common = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none" as const };
   switch (slug) {
     case "stomatologie-generala":
       return (

@@ -26,7 +26,7 @@ export function Hero() {
   return (
     <section id="top" ref={ref} className="relative overflow-hidden bg-blue-950">
       <div className="relative mx-4 mt-4 overflow-hidden rounded-[2rem] sm:mx-6 sm:mt-6 lg:mx-8 lg:mt-8">
-        <div className="relative h-[92svh] min-h-[620px] w-full">
+        <div className="relative h-[100svh] min-h-[680px] w-full sm:h-[92svh] sm:min-h-[620px]">
           <motion.div style={{ y: imageY }} className="absolute inset-0 -top-[8%] h-[118%] w-full">
             <Image
               src="/images/hero.jpg"
@@ -70,12 +70,12 @@ export function Hero() {
               <h1 className="text-balance font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
                 Stomatologie cu blândețe, fără teamă.
               </h1>
-              <p className="mt-5 max-w-lg text-balance text-base leading-relaxed text-white/80 sm:text-lg">
+              <p className="mt-4 max-w-lg text-balance text-sm leading-relaxed text-white/80 sm:mt-5 sm:text-lg">
                 Tratament dentar într-un mediu calm și prietenos, unde comunicarea deschisă
                 și confortul pacientului vin întotdeauna primele.
               </p>
 
-              <div className="mt-7 flex flex-wrap items-center gap-3">
+              <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-7">
                 <a
                   href="/contact#programare"
                   className="group inline-flex items-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-semibold text-ink shadow-soft transition-transform hover:-translate-y-0.5"
@@ -101,7 +101,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 flex max-w-xs items-center gap-3 rounded-2xl bg-white/10 p-3 backdrop-blur-md sm:max-w-sm"
+              className="mt-6 hidden max-w-xs items-center gap-3 rounded-2xl bg-white/10 p-3 backdrop-blur-md sm:mt-8 sm:flex sm:max-w-sm"
             >
               <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-white/10">
                 <Image src="/images/hero.jpg" alt="" fill className="object-cover" />
