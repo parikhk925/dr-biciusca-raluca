@@ -5,8 +5,8 @@ import { SITE } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-ink/10 bg-white pt-20 text-inkSoft">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 pb-16 sm:grid-cols-4 lg:px-10">
-        <div className="col-span-2 sm:col-span-1">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 pb-16 sm:grid-cols-4 lg:px-10">
+        <div className="sm:col-span-1">
           <Link href="/" className="flex items-center gap-2 text-ink">
             <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full">
               <Image src="/images/logo.jpg" alt="" fill className="object-cover" />
