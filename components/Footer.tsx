@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
@@ -7,8 +8,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 pb-16 sm:grid-cols-4 lg:px-10">
         <div className="col-span-2 sm:col-span-1">
           <Link href="/" className="flex items-center gap-2 text-ink">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-base">
-              🦷
+            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full">
+              <Image src="/images/logo.jpg" alt="" fill className="object-cover" />
             </span>
             <span className="font-display text-lg font-bold">{SITE.doctorName}</span>
           </Link>

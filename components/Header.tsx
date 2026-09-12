@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
@@ -41,12 +42,8 @@ export function Header({ variant = "overlay" }: { variant?: "overlay" | "solid" 
           href="/"
           className={`flex items-center gap-2 ${solid ? "text-blue-900" : "text-white"}`}
         >
-          <span
-            className={`flex h-8 w-8 items-center justify-center rounded-full text-base ${
-              solid ? "bg-blue-50" : "bg-white/15"
-            }`}
-          >
-            🦷
+          <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full">
+            <Image src="/images/logo.jpg" alt="" fill className="object-cover" />
           </span>
           <span className="font-display text-lg font-bold tracking-tight">
             {SITE.doctorName}

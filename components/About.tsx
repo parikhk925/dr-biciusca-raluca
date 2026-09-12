@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
@@ -12,8 +13,14 @@ export function About() {
                 Despre Dr. Raluca
               </span>
               <div className="mt-6 flex items-center gap-3">
-                <PlaceholderAvatar />
-                <PlaceholderAvatar />
+                <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-ink/10">
+                  <Image
+                    src="/images/portrait.jpg"
+                    alt={SITE.doctorName}
+                    fill
+                    className="object-cover"
+                  />
+                </span>
                 <span className="text-xs leading-tight text-inkSoft">
                   {SITE.practiceName}
                   <br />
@@ -37,13 +44,5 @@ export function About() {
         </div>
       </div>
     </section>
-  );
-}
-
-function PlaceholderAvatar() {
-  return (
-    <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-cream bg-blue-100 text-xs font-semibold text-blue-700 ring-1 ring-ink/10">
-      RB
-    </span>
   );
 }

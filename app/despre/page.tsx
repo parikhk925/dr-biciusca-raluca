@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageBanner } from "@/components/PageBanner";
 import { Stats } from "@/components/Stats";
 import { WhyChoose } from "@/components/WhyChoose";
@@ -22,8 +23,19 @@ export default function DesprePage() {
       />
 
       <section className="py-16 lg:py-24">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[0.8fr_1fr] lg:gap-16 lg:px-10">
           <Reveal>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-soft">
+              <Image
+                src="/images/portrait.jpg"
+                alt={SITE.doctorName}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
             <div className="space-y-5 text-base leading-relaxed text-inkSoft">
               <p>
                 Pune accent pe o comunicare deschisă și pe optimism, astfel încât fiecare

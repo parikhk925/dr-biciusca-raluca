@@ -16,8 +16,8 @@ export function Stats() {
           <Reveal>
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] shadow-soft">
               <Image
-                src="/images/hero.jpg"
-                alt="Cabinetul CMI Dr. Biciusca Raluca"
+                src="/images/reception.jpg"
+                alt="Recepția CMI Dr. Biciusca Raluca"
                 fill
                 className="object-cover"
               />
@@ -70,8 +70,8 @@ export function Stats() {
             <Reveal delay={0.2}>
               <div className="mt-7 flex items-center justify-between gap-4 rounded-2xl border border-ink/10 bg-white p-4">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10 text-lg font-semibold text-blue-700">
-                    RB
+                  <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
+                    <Image src="/images/portrait.jpg" alt={SITE.doctorName} fill className="object-cover" />
                   </span>
                   <div>
                     <p className="text-sm font-semibold text-ink">{SITE.doctorName}</p>
