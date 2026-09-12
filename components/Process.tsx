@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
 export function Process() {
   return (
     <section className="relative bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-5xl px-6 lg:px-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal>
           <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
             Cum decurge o vizită
@@ -23,7 +24,7 @@ export function Process() {
             const isLeft = i % 2 === 0;
             return (
               <Reveal key={step.title} delay={i * 0.06} className="relative">
-                <div className="relative grid grid-cols-1 items-center gap-2 py-8 md:grid-cols-2 md:gap-12">
+                <div className="relative grid grid-cols-1 items-center gap-6 py-8 md:grid-cols-2 md:gap-12">
                   <span
                     className="absolute left-6 top-8 z-10 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full bg-blue-600 font-display text-sm font-bold text-white shadow-card md:left-1/2"
                   >
@@ -43,11 +44,21 @@ export function Process() {
                     </p>
                   </div>
 
-                  {isLeft ? (
-                    <div className="hidden md:order-2 md:block" />
-                  ) : (
-                    <div className="hidden md:order-1 md:block" />
-                  )}
+                  <div
+                    className={`pl-16 md:pl-0 ${
+                      isLeft ? "md:order-2" : "md:order-1 md:pr-14"
+                    }`}
+                  >
+                    <div className="relative aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl shadow-card md:ml-0 md:max-w-none">
+                      <Image
+                        src={step.image}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 768px) 40vw, 90vw"
+                      />
+                    </div>
+                  </div>
                 </div>
               </Reveal>
             );

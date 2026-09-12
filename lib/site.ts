@@ -100,22 +100,27 @@ export const SITE = {
     {
       title: "Programare",
       text: "Ne contactezi telefonic, pe WhatsApp sau prin formular și stabilim împreună data potrivită.",
+      image: "/images/process-1.png",
     },
     {
       title: "Consultație și evaluare",
       text: "Discutăm despre starea ta dentară, eventuale temeri și facem o evaluare completă, fără grabă.",
+      image: "/images/process-2.png",
     },
     {
       title: "Plan de tratament explicat",
       text: "Îți explicăm clar ce recomandăm și de ce, ca să iei o decizie informată, în ritmul tău.",
+      image: "/images/process-3.png",
     },
     {
       title: "Tratament, pas cu pas",
       text: "Fiecare etapă este comunicată înainte să înceapă. Ne oprim oricând ai nevoie de o pauză.",
+      image: "/images/process-4.png",
     },
     {
       title: "Îngrijire ulterioară",
       text: "Primești recomandări clare pentru perioada de după tratament și rămânem disponibili pentru întrebări.",
+      image: "/images/process-5.png",
     },
   ],
   philosophy: [
