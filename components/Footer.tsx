@@ -3,16 +3,16 @@ import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-blue-950 pt-20 text-white/70">
+    <footer className="relative overflow-hidden border-t border-ink/10 bg-white pt-20 text-inkSoft">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 pb-16 sm:grid-cols-4 lg:px-10">
         <div className="col-span-2 sm:col-span-1">
-          <Link href="/" className="flex items-center gap-2 text-white">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-base">
+          <Link href="/" className="flex items-center gap-2 text-ink">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-base">
               🦷
             </span>
             <span className="font-display text-lg font-bold">{SITE.doctorName}</span>
           </Link>
-          <p className="mt-4 text-sm leading-relaxed text-white/50">
+          <p className="mt-4 text-sm leading-relaxed text-inkSoft">
             {SITE.practiceName}
             <br />
             {SITE.city}, {SITE.county}
@@ -31,39 +31,39 @@ export function Footer() {
         />
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ink/40">
             Program
           </p>
-          <ul className="mt-4 space-y-2 text-sm text-white/60">
+          <ul className="mt-4 space-y-2 text-sm text-inkSoft">
             {SITE.hours.map((h) => (
               <li key={h.days} className="flex justify-between gap-4">
                 <span>{h.days}</span>
-                <span className="text-white/80">{h.time}</span>
+                <span className="font-medium text-ink">{h.time}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ink/40">
             Contact
           </p>
           <div className="mt-4 space-y-2 text-sm">
-            <a href={`tel:${SITE.phoneE164}`} className="block text-white/80 hover:text-white">
+            <a href={`tel:${SITE.phoneE164}`} className="block font-medium text-ink hover:text-blue-600">
               {SITE.phoneDisplay}
             </a>
-            <p className="leading-relaxed text-white/60">{SITE.address}</p>
+            <p className="leading-relaxed text-inkSoft">{SITE.address}</p>
           </div>
         </div>
       </div>
 
       <div className="relative select-none overflow-hidden">
-        <p className="translate-y-[0.22em] whitespace-nowrap text-center font-display text-[16vw] font-extrabold leading-none text-white/[0.04] sm:text-[13vw]">
+        <p className="translate-y-[0.22em] whitespace-nowrap text-center font-display text-[16vw] font-extrabold leading-none text-ink/[0.04] sm:text-[13vw]">
           {SITE.practiceShort}
         </p>
       </div>
 
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-6 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between lg:px-10">
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-3 border-t border-ink/10 px-6 py-6 text-xs text-ink/40 sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <span>© {new Date().getFullYear()} {SITE.practiceName}. Toate drepturile rezervate.</span>
         <div className="flex gap-6">
           <span className="cursor-default">Confidențialitate</span>
@@ -83,11 +83,11 @@ function FooterCol({
 }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40">{title}</p>
-      <ul className="mt-4 space-y-2 text-sm text-white/60">
+      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ink/40">{title}</p>
+      <ul className="mt-4 space-y-2 text-sm text-inkSoft">
         {items.map((item) => (
           <li key={item.label}>
-            <Link href={item.href} className="hover:text-white">
+            <Link href={item.href} className="hover:text-blue-600">
               {item.label}
             </Link>
           </li>
