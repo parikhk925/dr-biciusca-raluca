@@ -6,3 +6,6 @@ out
 .DS_Store
 *.tsbuildinfo
 .claude/scheduled_tasks.lock
+pipeline/generated
+pipeline/output
+pipeline/.env

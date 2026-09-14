@@ -1,17 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { SITE } from "@/lib/site";
-import { Reveal } from "./Reveal";
-
-const REASONS = [
-  "Consultație / control de rutină",
-  "Urgență dentară",
-  "Ortodonție",
-  "Endodonție (tratament de canal)",
-  "Radiologie dentară",
-  "Altele",
-];
+import { clinic } from "@/config/clinic";
+import { hasMultiplePractitioners } from "@/lib/helpers";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -19,6 +10,11 @@ export function AppointmentForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [whatsappUrl, setWhatsappUrl] = useState("");
+
+  const reasons = clinic.appointment?.reasons ?? clinic.services.map((s) => s.name);
+  const showPractitionerField =
+    (clinic.appointment?.allowPractitionerSelection ?? false) &&
+    hasMultiplePractitioners(clinic);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,7 +25,7 @@ export function AppointmentForm() {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch("/api/programare", {
+      const res = await fetch("/api/appointment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -38,7 +34,7 @@ export function AppointmentForm() {
 
       if (!res.ok || !json.ok) {
         setStatus("error");
-        setErrorMsg(json.error || "A apărut o eroare. Te rugăm să încerci din nou.");
+        setErrorMsg(json.error || "Something went wrong. Please try again.");
         return;
       }
 
@@ -47,24 +43,27 @@ export function AppointmentForm() {
       form.reset();
     } catch {
       setStatus("error");
-      setErrorMsg("Nu am putut trimite cererea. Verifică conexiunea și încearcă din nou.");
+      setErrorMsg("We couldn't send your request. Please check your connection and try again.");
     }
   }
 
   return (
-    <div id="programare" className="rounded-[2rem] bg-white p-7 shadow-soft sm:p-10">
-      <h3 className="font-display text-2xl font-bold text-ink">Cere o programare</h3>
+    <div id="appointment" className="rounded-[2rem] bg-white p-7 shadow-soft sm:p-10">
+      <h3 className="font-display text-2xl font-bold text-ink">
+        {clinic.appointment?.heading ?? "Request an Appointment"}
+      </h3>
       <p className="mt-2 text-sm leading-relaxed text-inkSoft">
-        Completează formularul și te contactăm pentru a confirma data și ora. Pentru urgențe,
-        sună direct la {SITE.phoneDisplay}.
+        {clinic.appointment?.description ??
+          "Fill in the form and we'll get in touch to confirm the date and time."}
+        {clinic.contact.phone && ` For urgent matters, call us directly at ${clinic.contact.phone}.`}
       </p>
 
       {status === "success" ? (
         <div className="mt-8 rounded-2xl border border-blue-500/30 bg-blue-50 p-6">
-          <p className="font-medium text-blue-700">Cererea ta a fost înregistrată.</p>
+          <p className="font-medium text-blue-700">Your request has been received.</p>
           <p className="mt-2 text-sm leading-relaxed text-inkSoft">
-            Te vom contacta telefonic pentru confirmare. Pentru un răspuns mai rapid, poți trimite
-            aceleași detalii direct pe WhatsApp:
+            We&rsquo;ll contact you by phone to confirm.
+            {whatsappUrl && " For a faster response, you can send the same details directly on WhatsApp:"}
           </p>
           {whatsappUrl && (
             <a
@@ -73,14 +72,14 @@ export function AppointmentForm() {
               rel="noreferrer"
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-blue-600"
             >
-              Trimite pe WhatsApp
+              Send via WhatsApp
             </a>
           )}
           <button
             onClick={() => setStatus("idle")}
             className="mt-4 block text-sm font-medium text-blue-700 underline underline-offset-4"
           >
-            Trimite o altă cerere
+            Send another request
           </button>
         </div>
       ) : (
@@ -95,43 +94,64 @@ export function AppointmentForm() {
           />
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Field label="Nume complet" name="name" required placeholder="Numele tău" />
-            <Field label="Telefon" name="phone" type="tel" required placeholder="07xx xxx xxx" />
+            <Field label="Full Name" name="name" required placeholder="Your name" />
+            <Field label="Phone Number" name="phone" type="tel" required placeholder="(555) 123-4567" />
           </div>
 
-          <Field label="Email (opțional)" name="email" type="email" placeholder="nume@exemplu.ro" />
+          <Field label="Email (optional)" name="email" type="email" placeholder="you@example.com" />
 
-          <div>
-            <label className="mb-1.5 block text-sm font-medium text-ink">Motivul programării</label>
-            <select
-              name="reason"
-              className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Alege un motiv
-              </option>
-              {REASONS.map((r) => (
-                <option key={r} value={r}>
-                  {r}
+          {reasons.length > 0 && (
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-ink">Preferred Service</label>
+              <select
+                name="reason"
+                className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Choose a reason
                 </option>
-              ))}
-            </select>
-          </div>
+                {reasons.map((r) => (
+                  <option key={r} value={r}>
+                    {r}
+                  </option>
+                ))}
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          )}
+
+          {showPractitionerField && (
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-ink">Preferred Practitioner</label>
+              <select
+                name="practitioner"
+                className="w-full rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
+                defaultValue=""
+              >
+                <option value="">No preference</option>
+                {clinic.practitioners.map((p) => (
+                  <option key={p.id} value={p.name}>
+                    {p.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Field label="Data preferată" name="date" type="date" />
-            <Field label="Ora preferată" name="time" type="time" />
+            <Field label="Preferred Date" name="date" type="date" />
+            <Field label="Preferred Time" name="time" type="time" />
           </div>
 
           <div>
             <label className="mb-1.5 block text-sm font-medium text-ink">
-              Detalii suplimentare (opțional)
+              Additional Details (optional)
             </label>
             <textarea
               name="details"
               rows={3}
-              placeholder="Spune-ne pe scurt ce simptome ai sau orice ne ajută să te pregătim pentru vizită."
+              placeholder="Tell us briefly about your symptoms or anything that helps us prepare for your visit."
               className="w-full resize-none rounded-xl border border-ink/10 bg-cream/60 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-blue-500"
             />
           </div>
@@ -145,7 +165,7 @@ export function AppointmentForm() {
             disabled={status === "loading"}
             className="w-full rounded-full bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-blue-600 disabled:opacity-60"
           >
-            {status === "loading" ? "Se trimite..." : "Trimite cererea"}
+            {status === "loading" ? "Sending..." : "Send Request"}
           </button>
         </form>
       )}

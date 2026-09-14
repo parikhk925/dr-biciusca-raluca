@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/site";
+import { clinic } from "@/config/clinic";
 
 const NAV = [
-  { href: "/", label: "Acasă" },
-  { href: "/servicii", label: "Servicii" },
-  { href: "/despre", label: "Despre" },
-  { href: "/recenzii", label: "Testimoniale" },
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -26,6 +26,7 @@ export function Header({ variant = "overlay" }: { variant?: "overlay" | "solid" 
   }, [variant]);
 
   const solid = variant === "solid";
+  const ctaLabel = clinic.hero.secondaryCTA ?? "Call Now";
 
   return (
     <header
@@ -42,11 +43,13 @@ export function Header({ variant = "overlay" }: { variant?: "overlay" | "solid" 
           href="/"
           className={`flex items-center gap-2 ${solid ? "text-blue-900" : "text-white"}`}
         >
-          <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full">
-            <Image src="/images/logo.jpg" alt="" fill className="object-cover" />
-          </span>
+          {clinic.branding.logo && (
+            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full">
+              <Image src={clinic.branding.logo} alt="" fill className="object-cover" />
+            </span>
+          )}
           <span className="font-display text-lg font-bold tracking-tight">
-            {SITE.doctorName}
+            {clinic.business.shortName ?? clinic.business.name}
           </span>
         </Link>
 
@@ -71,16 +74,16 @@ export function Header({ variant = "overlay" }: { variant?: "overlay" | "solid" 
         </nav>
 
         <Link
-          href="/contact#programare"
+          href="/contact#appointment"
           className={`hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-card transition-transform hover:-translate-y-0.5 lg:inline-flex ${
             solid ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-white text-blue-900"
           }`}
         >
-          Sună acum
+          {ctaLabel}
         </Link>
 
         <button
-          aria-label="Deschide meniul"
+          aria-label="Open menu"
           onClick={() => setOpen((v) => !v)}
           className={`flex h-10 w-10 items-center justify-center rounded-full lg:hidden ${
             solid ? "bg-blue-50 text-blue-900" : "bg-white/10 text-white"
@@ -112,11 +115,11 @@ export function Header({ variant = "overlay" }: { variant?: "overlay" | "solid" 
               </Link>
             ))}
             <Link
-              href="/contact#programare"
+              href="/contact#appointment"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-blue-900"
             >
-              Sună acum
+              {ctaLabel}
             </Link>
           </nav>
         </div>

@@ -1,0 +1,30 @@
+{
+  "slug": "blackwood-dental-surgery",
+  "businessName": "Blackwood Dental Surgery",
+  "city": "Blackwood",
+  "country": "United Kingdom",
+  "address": "171a High Street",
+  "postalCode": "NP12 1AA",
+  "phone": "01495 222 697",
+  "whatsapp": null,
+  "email": "surgery@blackwooddentalsurgery.com",
+  "googleMapsUrl": "https://www.google.com/maps/place/Blackwood+Dental+Surgery/@51.6657861,-3.1946052,17z/data=!3m1!4b1!4m6!3m5!1s0x486e2112832a4927:0xf692e803df6e65f0!8m2!3d51.6657861!4d-3.1946052!16s%2Fg%2F11cs5pxy_9?entry=ttu",
+  "latitude": 51.6657861,
+  "longitude": -3.1946052,
+  "rating": "4.9",
+  "reviewCount": 54,
+  "openingHours": null,
+  "practitioners": [
+    {
+      "name": "Dr Colin Rees",
+      "title": "Dentist",
+      "qualifications": ["BDS Cardiff Dental School", "Fellow of the Royal College of Surgeons"],
+      "specialty": "Prosthodontics & Periodontics",
+      "experienceYears": 35,
+      "shortBio": "Colin qualified from Cardiff Dental School in 1990 and has worked in hospital and maxillofacial settings as well as general practice for over 35 years, with a particular interest in implantology and crown and bridgework."
+    }
+  ],
+  "services": ["General Dental Surgery", "Minor Oral Surgery", "Domiciliary Care"],
+  "social": { "facebook": "https://www.facebook.com/p/Blackwood-Dental-Surgery-100070243414263/" },
+  "outreachNote": "existing placeholder page, not a full website"
+}

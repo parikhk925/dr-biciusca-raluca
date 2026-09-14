@@ -1,0 +1,28 @@
+{
+  "slug": "gentle-dental-practice-aberdare",
+  "businessName": "Gentle Dental Practice",
+  "city": "Aberdare",
+  "country": "United Kingdom",
+  "address": "7 Victoria Square",
+  "postalCode": "CF44 7LA",
+  "phone": "01685 882800",
+  "whatsapp": null,
+  "email": "androula98@hotmail.com",
+  "googleMapsUrl": "https://www.google.com/maps/place/Gentle+Dental+Practice/@51.7129544,-3.4448426,17z/data=!3m1!4b1!4m6!3m5!1s0x486e3eb432673e25:0x43ad19d4abcfe79!8m2!3d51.7129544!4d-3.4448426!16s%2Fg%2F1tl9l_yw?entry=ttu",
+  "latitude": 51.7129544,
+  "longitude": -3.4448426,
+  "rating": "4.3",
+  "reviewCount": 148,
+  "openingHours": [
+    { "days": "Monday – Thursday", "hours": "9:00 AM – 1:30 PM, 2:30 PM – 5:00 PM" },
+    { "days": "Friday", "hours": "9:00 AM – 1:00 PM, 1:30 PM – 3:30 PM" },
+    { "days": "Saturday – Sunday", "hours": "Closed" }
+  ],
+  "practitioners": [
+    { "name": "Dr Antroula Agkastinioti", "title": "Dentist" },
+    { "name": "Dr Parul Sood", "title": "Dentist" }
+  ],
+  "services": ["Check-ups", "Dental Hygiene", "Fillings", "Crowns & Bridges", "Dentures", "Teeth Whitening", "Root Canal Treatment", "Oral Surgery", "Dental Implants"],
+  "social": { "instagram": "https://www.instagram.com/gentledentalpracticeaberdare/", "facebook": "https://www.facebook.com/profile.php?id=100063527022598" },
+  "outreachNote": "no dedicated website"
+}

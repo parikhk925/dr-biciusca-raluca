@@ -1,0 +1,22 @@
+{
+  "slug": "bessacarr-dental-practice",
+  "businessName": "Bessacarr Dental Practice",
+  "city": "Doncaster",
+  "country": "United Kingdom",
+  "address": "5 Alston Road",
+  "postalCode": "DN4 7HA",
+  "phone": null,
+  "whatsapp": null,
+  "email": "info@bessacarrdental.co.uk",
+  "googleMapsUrl": "https://www.google.com/maps/place/Bessacarr+Dental+Practice/data=!4m7!3m6!1s0x48790f893273e03d:0x97d3f3ab1306be11!8m2!3d53.5019281!4d-1.0831964!16s%2Fg%2F11rtps0_jf!19sChIJPeBzMokPeUgREb4GE6vz05c",
+  "latitude": 53.5019281,
+  "longitude": -1.0831964,
+  "rating": "4.2",
+  "reviewCount": 66,
+  "openingHours": null,
+  "practitioners": [],
+  "services": ["Family Dentistry", "Cosmetic Dentistry", "Dental Implants", "Orthodontics", "Invisalign", "Composite Bonding", "Teeth Whitening"],
+  "social": { "instagram": "https://www.instagram.com/bessacarrdental/" },
+  "outreachNote": "no dedicated website",
+  "familyRun": true
+}

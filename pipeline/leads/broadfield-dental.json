@@ -1,0 +1,24 @@
+{
+  "slug": "broadfield-dental-sheffield",
+  "businessName": "Broadfield Dental",
+  "city": "Sheffield",
+  "country": "United Kingdom",
+  "address": "6 Broadfield Close",
+  "postalCode": null,
+  "phone": "0114 255 0772",
+  "whatsapp": null,
+  "email": "broadfieldenquiries@gmail.com",
+  "googleMapsUrl": "https://www.google.com/maps/place/Broadfield+Dental+(Sheffield)/@53.3563583,-1.4815183,17z/data=!3m1!4b1!4m6!3m5!1s0x4879825e82be2765:0x1d9171a3d4180dba!8m2!3d53.3563583!4d-1.4815183!16s%2Fg%2F1thxkld2?entry=ttu",
+  "latitude": 53.3563583,
+  "longitude": -1.4815183,
+  "rating": "4.4",
+  "reviewCount": 71,
+  "openingHours": [
+    { "days": "Monday – Friday", "hours": "8:30 AM – 12:30 PM, 1:30 PM – 5:15 PM" },
+    { "days": "Saturday – Sunday", "hours": "Closed" }
+  ],
+  "practitioners": [{ "name": "Dr Ali Jitarayah", "title": "Dentist" }],
+  "services": ["General Dentistry", "Cosmetic Dentistry", "Restorative Dentistry", "Dental Implants"],
+  "social": { "facebook": "https://www.facebook.com/BroadfieldDentalSheffield/" },
+  "outreachNote": "no dedicated website"
+}

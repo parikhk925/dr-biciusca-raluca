@@ -1,0 +1,26 @@
+{
+  "slug": "bowdlers-house-dental-practice",
+  "businessName": "Bowdlers House Dental Practice",
+  "city": "Shrewsbury",
+  "country": "United Kingdom",
+  "address": "Bowdlers House, Town Walls",
+  "postalCode": "SY1 1TP",
+  "phone": "01743 270170",
+  "whatsapp": null,
+  "email": "bowdlershousedp@gmail.com",
+  "googleMapsUrl": "https://www.google.com/maps/place/Bowdlers+House+Dental+Practice/data=!4m7!3m6!1s0x487a9e5a54bb5d03:0x18f4b3fcb954a5e4!8m2!3d52.7059531!4d-2.751098!16s%2Fg%2F1tk_ntj4!19sChIJA127VFqeekgR5KVUufyz9Bg",
+  "latitude": 52.7059531,
+  "longitude": -2.751098,
+  "rating": "4.8",
+  "reviewCount": 20,
+  "openingHours": [
+    { "days": "Monday", "hours": "9:00 AM – 1:00 PM, 2:00 PM – 6:00 PM" },
+    { "days": "Tuesday – Friday", "hours": "9:00 AM – 1:00 PM, 2:00 PM – 5:30 PM" },
+    { "days": "Saturday", "hours": "9:00 AM – 1:00 PM" },
+    { "days": "Sunday", "hours": "Closed" }
+  ],
+  "practitioners": [],
+  "services": ["Check-ups", "Dental Hygiene", "Fillings", "Crowns & Bridges", "Dentures", "Root Canal Treatment", "Cosmetic Braces", "Teeth Whitening", "Extractions", "Dental Implants"],
+  "social": { "facebook": "https://www.facebook.com/p/Bowdlers-House-Dental-Practice-100057022167306/" },
+  "outreachNote": "no dedicated website"
+}

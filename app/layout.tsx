@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
+import { clinic } from "@/config/clinic";
+import { buildMetadata } from "@/lib/seo";
+import { buildClinicJsonLd } from "@/lib/schema";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -16,28 +19,24 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://dr-biciusca-raluca.vercel.app"),
-  title: "Dr. Biciusca Raluca — Stomatologie cu blândețe, fără teamă | Roman, Neamț",
-  description:
-    "Cabinet stomatologic CMI Dr. Biciusca Raluca, în Roman, Neamț. Stomatologie generală, ortodonție, endodonție și radiologie dentară, într-un mediu calm, prietenos, pentru pacienți de toate vârstele, inclusiv cei anxioși.",
-  openGraph: {
-    title: "Dr. Biciusca Raluca — Stomatologie cu blândețe, fără teamă",
-    description:
-      "Cabinet stomatologic în Roman, Neamț. Tratament calm, comunicare deschisă și confort pentru fiecare pacient.",
-    locale: "ro_RO",
-    type: "website",
-  },
-};
+export const metadata: Metadata = buildMetadata(clinic);
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = buildClinicJsonLd(clinic);
+
   return (
-    <html lang="ro" className={`${manrope.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
+      <body className="font-sans antialiased">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </body>
     </html>
   );
 }
